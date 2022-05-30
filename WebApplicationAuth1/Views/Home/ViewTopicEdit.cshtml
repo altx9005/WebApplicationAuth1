@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Edit the post";
+}
+
+
+
+    <form method="get" action="~/Home/SaveEditPost">
+        <p>
+            <label>Editing post</label><br />
+
+
+            <textarea name=Text cols=40 rows=7>@ViewBag.Text</textarea>
+
+            <input type="hidden" name="TopicId" value=@ViewBag.TopicId>
+            <input type="hidden" name="Id" value=@ViewBag.Id>
+        </p>
+        <p>
+            <input type="submit" value="Save edit post" />
+
+        </p>
+
+    </form>

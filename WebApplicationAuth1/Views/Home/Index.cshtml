@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron">
+    @Html.ActionLink("Add new Topic", "About", "Home")
+
+</div>
+
+<div>
+    <h3><p>List of Topics</p></h3>
+    <table style="border-collapse: collapse; width: 100%;" border="1">
+        <tr>
+
+            <td><p><strong>Name of topic</strong></p></td>
+            <td><p><strong>Create by user</strong></p></td>
+
+        </tr>
+        @foreach (var b in ViewBag.Topics)
+        {
+        <tr>
+            <td><a href="/Home/ViewTopic/@b.Id">@b.NameTopic</a></td>
+            
+            <td><p>@b.UserName</p></td>
+
+        </tr>
+        }
+
+
+    </table>
+</div>

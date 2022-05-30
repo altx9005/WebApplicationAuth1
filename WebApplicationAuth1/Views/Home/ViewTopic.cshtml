@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Posts of topic";
+}
+
+
+<div>
+    <h3><p>Topic : @ViewBag.NameTopic</p></h3>
+    <table style="border-collapse: collapse; width: 100%;" border="1">
+        <tr>
+
+
+            <td><p><strong>Post</strong></p></td>
+            <td><p><strong>Create by user</strong></p></td>
+            
+
+        </tr>
+        @foreach (var b in ViewBag.Post)
+        {
+        <tr>
+
+            <td><p>@b.Text</p></td>
+            <td><p>@b.Author</p></td>
+            @if(User.Identity.Name == b.Author)
+            { 
+            <td><a href="/Home/EditTopic?id=@b.Id&TopicId=@b.TopicId">edit post</a></td> 
+            }
+            
+
+
+
+        </tr>
+        }
+
+
+    </table>
+</div>
+
+<form method="get" action="~/Home/AddPost">
+    <p>
+        <label>New post</label><br />
+        <input type="text" name="Text" />
+        <input type="hidden" name="TopicId" value=@ViewBag.TopicId>
+    </p>
+    <p>
+        <input type="submit" value="Add new post" />
+        
+    </p>
+
+    </form>
